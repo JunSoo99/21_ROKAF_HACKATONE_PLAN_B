@@ -123,7 +123,7 @@ var newApp = new App();
 var Loading = new loading('서버에서 DB를 불러오는 중입니다.');
 
 const xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://127.0.0.1:5500/main.db', true);
+xhr.open('GET', 'http://127.0.0.1:5500/static/main.db', true);
 xhr.responseType = 'arraybuffer';
 xhr.addEventListener('load',xhrLoad.bind(this));
 
