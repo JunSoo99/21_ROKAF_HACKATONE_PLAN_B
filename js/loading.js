@@ -1,4 +1,4 @@
-import {container, stageWidth, stageHeight } from "./home.js";
+import { container, stageWidth, stageHeight } from "./home.js";
 
 export class loading{
     constructor(msg){
@@ -13,7 +13,7 @@ export class loading{
         this.imageBox.style.position = "relative";
         this.imageBox.style.left = "50%";
         this.imageBox.style.top = "50%";
-        this.imageBox.src = './loading.gif';
+        this.imageBox.src = '/static/loading.gif';
         this.imageBox.style.width = "100px";
         this.imageBox.style.height = "100px";
 
