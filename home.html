@@ -1,23 +1,26 @@
 <DOCTYPE html>
     <html lang="en">
-
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+    </style>
     <body style="overflow-x:hidden;overflow-y:hidden">
-        <div id="container" style="background-color:rgb(255, 255, 255);">
-            <div id="basicTable" style="border: 3px solid black;"></div>
-            <div id="MainTable" style="border: 3px solid black; margin: 15px;">
+        <div id="container">
+            <div id="basicTable" style="border: 3px solid rgb(255, 255, 255);"></div>
+            <div id="MainTable" style="border: 3px solid rgb(255, 255, 255); margin: 15px;">
                 <div id = "mainTable"></div>
                 <div id = "mainConfig" style="text-align: center;position: fixed; bottom: 200px;; left: 50%;">
                     <button id = "mainTableLeft"><</button>
                     <button id = "mainTableRecc">자동추천</button>
                     <button id = "mainTableRight">></button>
                 </div>
-                <div style="border: 3px solid black; margin : 10px; position: fixed; bottom: 100px;">
+                <div style="border: 3px solid rgb(255, 255, 255); margin : 10px; position: fixed; bottom: 100px;">
                     경고창
-                    <div id = "mainAlert"></div>
+                    <div id = "mainAlert" style="color: black;"></div>
                 </div>
             </div>
-            <div id="alertTable" style="border: 3px solid black;"></div>
+            <div id="alertTable" style="border: 3px solid rgb(255, 255, 255);"></div>
         </div>
+        <link rel="stylesheet" href="/css/style.css">
         <script type="text/javascript" src="/js/sql.js"></script>
         <script type="module" src="/js/home.js"></script>
     </body>
