@@ -82,8 +82,8 @@ class App {
         
         // 화면 구성 요소들 생성
         this.TopTableRow  = new topTableRow();
-        this.AlertTable = new alertTable("비상대기 근무","오전","오후","야간");
-        this.numOfPlane = new alertTable("비행자원","오전","오후",null)
+        this.AlertTable = new alertTable("ALERT","MORNING","DAY","NIGHT");
+        this.numOfPlane = new alertTable("PLANES","MORNING","DAY",null)
         this.MainTable = new topMainRow();
 
         // 리사이즈
@@ -126,7 +126,7 @@ var Loading = new loading('서버에서 DB를 불러오는 중입니다.'); // �
 
 // DB 로딩
 const xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://127.0.0.1:5500/static/main.db', true);
+xhr.open('GET', 'http://rokafa.com:5000/static/main.db', true);
 xhr.responseType = 'arraybuffer';
 xhr.addEventListener('load',xhrLoad.bind(this));
 

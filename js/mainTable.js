@@ -11,7 +11,7 @@ export class mainTableRow {
         this.container.style.flexDirection = "row";
         this.container.style.paddingTop = '5px';
         this.container.style.paddingBottom = '5px';
-        this.container.style.background = '#D8D8D8';
+        this.container.style.background = 'rgb(77, 77, 77)';
 
         //내부 요소 생성
         this.callSign = document.createElement("input");
@@ -69,7 +69,7 @@ export class mainTableRow {
         mainAlert.innerHTML = "오류 없음"
         mainAlert.style.background = '#58fa68';
         for (var j = 0; j < rows.length; j++) {
-            rows[j].container.style.background = '#D8D8D8';
+            rows[j].container.style.background = 'rgb(77, 77, 77)';
         }
         for(var i = 0; i < rows.length; i++){
             if (i == rows.indexOf(this)){
@@ -120,12 +120,12 @@ export class topMainRow {
 
 
         this.callSign.innerHTML = "C/S";
-        this.mission.innerHTML = '임무';
-        this.qualification.innerHTML = "자격";
-        this.name1.innerHTML = "이름";
-        this.name2.innerHTML = "이름2";
-        this.takeOff.innerHTML = "이륙";
-        this.note.innerHTML = "비고";
+        this.mission.innerHTML = 'MISSION';
+        this.qualification.innerHTML = "QUALIFY";
+        this.name1.innerHTML = "NAME";
+        this.name2.innerHTML = "NAME2";
+        this.takeOff.innerHTML = "TAKEOFF";
+        this.note.innerHTML = "NOTE";
         this.plus.textContent = "+";
 
         this.plus.onclick = function () {

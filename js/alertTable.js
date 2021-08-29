@@ -8,8 +8,10 @@ export class alertTable {
         this.morning = new alertTableRow(row1);
         this.day = new alertTableRow(row2);
         this.night = new alertTableRow(row3);
+        this.margin = document.createElement("div");
 
         this.title.innerHTML = title
+        this.margin.style.height = '10px';
 
         this.container.appendChild(this.title);
         this.container.appendChild(this.morning.container);
@@ -17,6 +19,7 @@ export class alertTable {
         if(row3 != null){
             this.container.appendChild(this.night.container);
         }
+        this.container.appendChild(this.margin);
 
         alertTableDiv.appendChild(this.container);
         this.resize();
@@ -41,6 +44,7 @@ export class alertTableRow {
         this.secondPilot = document.createElement("input");
 
         this.time.innerHTML = title;
+        this.container.style.margin = '5px'
 
         this.container.appendChild(this.time);
         this.container.appendChild(this.firstPilot);

@@ -69,7 +69,7 @@ export class basicTableRow {
             this.container.style.background = '#FA5858';
         }
         else {
-            this.container.style.background = '#D8D8D8';
+            this.container.style.background = 'rgb(77, 77, 77)';
         }
     }
 }
@@ -88,10 +88,10 @@ export class topTableRow {
         this.plus = document.createElement('button');
 
 
-        this.name.innerHTML = "이름";
-        this.note.innerHTML = "비고";
-        this.qualification.innerHTML = "자격";
-        this.date.innerHTML = "최근 비행";
+        this.name.innerHTML = "NAME";
+        this.note.innerHTML = "NOTE";
+        this.qualification.innerHTML = "QUALIFY";
+        this.date.innerHTML = "LAST FLIGHT";
         this.plus.textContent = "+";
 
         this.plus.onclick = function () {
