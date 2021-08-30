@@ -60,7 +60,7 @@ function reccFunc2(index) {
 // 좌우 버튼 함수
 function moveLeft(){
     if (currentRecc == 0){
-        currentRecc = 4;
+        currentRecc = 2;
     }else{
         currentRecc -= 1;
     }
@@ -68,7 +68,7 @@ function moveLeft(){
 }
 
 function moveRight(){
-    if (currentRecc == 4){
+    if (currentRecc == 2){
         currentRecc = 0;
     }else{
         currentRecc += 1;
@@ -154,10 +154,10 @@ function xhrLoad(e){
     recc.push(recc2Sql);
     const recc3Sql = db.exec('select * from recc3')[0].values;
     recc.push(recc3Sql);
-    const recc4Sql = db.exec('select * from recc4')[0].values;
-    recc.push(recc4Sql);
-    const recc5Sql = db.exec('select * from recc5')[0].values;
-    recc.push(recc5Sql);
+    //const recc4Sql = db.exec('select * from recc4')[0].values;
+    //recc.push(recc4Sql);
+    //const recc5Sql = db.exec('select * from recc5')[0].values;
+    //recc.push(recc5Sql);
 }
 
 xhr.send();
