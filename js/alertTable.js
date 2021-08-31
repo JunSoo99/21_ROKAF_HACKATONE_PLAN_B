@@ -8,10 +8,10 @@ export class alertTable {
         this.morning = new alertTableRow(row1);
         this.day = new alertTableRow(row2);
         this.night = new alertTableRow(row3);
-        this.margin = document.createElement("div");
 
+        const ALERT_TABLE_TITLE_CLASS_NM = "alert-table-title";
         this.title.innerHTML = title
-        this.margin.style.height = '10px';
+        this.title.classList.add(ALERT_TABLE_TITLE_CLASS_NM);
 
         this.container.appendChild(this.title);
         this.container.appendChild(this.morning.container);
@@ -19,7 +19,6 @@ export class alertTable {
         if(row3 != null){
             this.container.appendChild(this.night.container);
         }
-        this.container.appendChild(this.margin);
 
         alertTableDiv.appendChild(this.container);
         this.resize();
@@ -44,7 +43,6 @@ export class alertTableRow {
         this.secondPilot = document.createElement("input");
 
         this.time.innerHTML = title;
-        this.container.style.margin = '5px'
 
         this.container.appendChild(this.time);
         this.container.appendChild(this.firstPilot);
@@ -52,8 +50,8 @@ export class alertTableRow {
     }
 
     resize() {
-        this.time.style.width = stageWidth * alertTableRatio / 6;
-        this.firstPilot.style.width = stageWidth * alertTableRatio / 5;
-        this.secondPilot.style.width = stageWidth * alertTableRatio / 5;
+        // this.time.style.width = stageWidth * alertTableRatio / 6;
+        // this.firstPilot.style.width = stageWidth * alertTableRatio / 5;
+        // this.secondPilot.style.width = stageWidth * alertTableRatio / 5;
     }
 }

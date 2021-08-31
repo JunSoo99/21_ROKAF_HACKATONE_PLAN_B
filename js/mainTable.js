@@ -9,9 +9,9 @@ export class mainTableRow {
         this.container = document.createElement("div");
         this.container.style.display = "flex";
         this.container.style.flexDirection = "row";
-        this.container.style.paddingTop = '5px';
-        this.container.style.paddingBottom = '5px';
-        this.container.style.background = 'rgb(77, 77, 77)';
+        // this.container.style.paddingTop = '5px';
+        // this.container.style.paddingBottom = '5px';
+        // this.container.style.background = '#D8D8D8';
 
         //내부 요소 생성
         this.callSign = document.createElement("input");
@@ -21,7 +21,7 @@ export class mainTableRow {
         this.name2 = document.createElement('input');
         this.takeOff = document.createElement("input");
         this.note = document.createElement("input");
-        this.delete = document.createElement('button');
+        this.delete = document.createElement("img");
 
         //세부 속성 지정
         var options = ['교관', '4L리더', '2L리더', '윙맨'];
@@ -32,7 +32,8 @@ export class mainTableRow {
             this.qualification.appendChild(opt);
         }
         //this.date.type = 'date';
-        this.delete.textContent = "-";
+        // this.delete.textContent = "-";
+        this.delete.src = "../assets/images/checkbox-indeterminate-line.svg";
 
         //값 지정
         this.callSign.value = callSign;
@@ -67,9 +68,11 @@ export class mainTableRow {
 
     checkRestTime(){
         mainAlert.innerHTML = "오류 없음"
-        mainAlert.style.background = '#58fa68';
+        const MAIN_ALERT_SUCCESS_CLASS_NM = "main-alert-success"; // TODO 위로 올리거나 Config로 빼기
+        mainAlert.classList.add(MAIN_ALERT_SUCCESS_CLASS_NM);
+        // mainAlert.style.background = '#58fa68';
         for (var j = 0; j < rows.length; j++) {
-            rows[j].container.style.background = 'rgb(77, 77, 77)';
+            // rows[j].container.style.background = '#D8D8D8';
         }
         for(var i = 0; i < rows.length; i++){
             if (i == rows.indexOf(this)){
@@ -77,9 +80,13 @@ export class mainTableRow {
             }
             if (rows[i].name1.value == this.name1.value && Math.abs(rows[i].takeOff.value - this.takeOff.value) < 330 && rows[i].takeOff.value != 0 && this.takeOff.value != 0){
                 mainAlert.innerHTML = "휴식시간 부족"
-                mainAlert.style.background = '#FA5858';
-                this.container.style.background = '#FA5858';
-                rows[i].container.style.background = '#FA5858';
+                const LACK_OF_REST_TIME_CLASS_NM = "lack-of-rest-time"; // TODO 위로 올리거나 Config로 빼기
+                mainAlert.classList.add(LACK_OF_REST_TIME_CLASS_NM);
+                // mainAlert.style.background = '#FA5858';
+                this.container.classList.add(LACK_OF_REST_TIME_CLASS_NM);
+                // this.container.style.background = '#FA5858';
+                rows[i].container.classList.add(LACK_OF_REST_TIME_CLASS_NM);
+                // rows[i].container.style.background = '#FA5858';
             }
         }
     }
@@ -91,14 +98,14 @@ export class mainTableRow {
     }
 
     resize() {
-        this.callSign.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.mission.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.qualification.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.name1.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.name2.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.takeOff.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.note.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.delete.style.width = stageWidth * mainTableRatio / 29;
+        // this.callSign.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.mission.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.qualification.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.name1.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.name2.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.takeOff.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.note.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.delete.style.width = stageWidth * mainTableRatio / 29;
     }
 }
 
@@ -116,17 +123,19 @@ export class topMainRow {
         this.name2 = document.createElement('div');
         this.takeOff = document.createElement("div");
         this.note = document.createElement("div");
-        this.plus = document.createElement('button');
+        this.plus = document.createElement('img');
 
 
         this.callSign.innerHTML = "C/S";
-        this.mission.innerHTML = 'MISSION';
-        this.qualification.innerHTML = "QUALIFY";
-        this.name1.innerHTML = "NAME";
-        this.name2.innerHTML = "NAME2";
-        this.takeOff.innerHTML = "TAKEOFF";
-        this.note.innerHTML = "NOTE";
-        this.plus.textContent = "+";
+        this.mission.innerHTML = '임무';
+        this.qualification.innerHTML = "자격";
+        this.name1.innerHTML = "이름";
+        this.name2.innerHTML = "이름2";
+        this.takeOff.innerHTML = "이륙";
+        this.note.innerHTML = "비고";
+        // this.plus.textContent = "+";
+        this.plus.src = "../assets/images/add-box-fill.svg";
+
 
         this.plus.onclick = function () {
             var newRow = new mainTableRow("","","","","","","");
@@ -147,14 +156,14 @@ export class topMainRow {
     }
 
     resize() {
-        this.callSign.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.mission.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.qualification.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.name1.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.name2.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.takeOff.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.note.style.width = stageWidth * mainTableRatio / 29 * 4;
-        this.plus.style.width = stageWidth * mainTableRatio / 29;
+        // this.callSign.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.mission.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.qualification.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.name1.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.name2.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.takeOff.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.note.style.width = stageWidth * mainTableRatio / 29 * 4;
+        // this.plus.style.width = stageWidth * mainTableRatio / 29;
 
         for (var i = 0; i < rows.length; i++) {
             rows[i].resize()
