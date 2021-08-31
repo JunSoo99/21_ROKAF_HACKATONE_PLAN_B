@@ -68,11 +68,14 @@ export class mainTableRow {
 
     checkRestTime(){
         mainAlert.innerHTML = "오류 없음"
+        const LACK_OF_REST_TIME_CLASS_NM = "lack-of-rest-time"; // TODO 위로 올리거나 Config로 빼기
         const MAIN_ALERT_SUCCESS_CLASS_NM = "main-alert-success"; // TODO 위로 올리거나 Config로 빼기
         mainAlert.classList.add(MAIN_ALERT_SUCCESS_CLASS_NM);
+        mainAlert.classList.remove(LACK_OF_REST_TIME_CLASS_NM);
         // mainAlert.style.background = '#58fa68';
         for (var j = 0; j < rows.length; j++) {
             // rows[j].container.style.background = '#D8D8D8';
+            rows[j].container.classList.remove(LACK_OF_REST_TIME_CLASS_NM)
         }
         for(var i = 0; i < rows.length; i++){
             if (i == rows.indexOf(this)){
@@ -80,7 +83,6 @@ export class mainTableRow {
             }
             if (rows[i].name1.value == this.name1.value && Math.abs(rows[i].takeOff.value - this.takeOff.value) < 330 && rows[i].takeOff.value != 0 && this.takeOff.value != 0){
                 mainAlert.innerHTML = "휴식시간 부족"
-                const LACK_OF_REST_TIME_CLASS_NM = "lack-of-rest-time"; // TODO 위로 올리거나 Config로 빼기
                 mainAlert.classList.add(LACK_OF_REST_TIME_CLASS_NM);
                 // mainAlert.style.background = '#FA5858';
                 this.container.classList.add(LACK_OF_REST_TIME_CLASS_NM);
