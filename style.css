@@ -95,6 +95,15 @@ button:hover, img:hover {
     position: absolute;
 }
 
+#mainIndex {
+    text-align: center;
+    position: fixed; 
+    bottom: 60px; 
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
 #mainConfig #mainTableRecc {
     background: none;
     border: none;

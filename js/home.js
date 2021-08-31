@@ -3,6 +3,7 @@ import { basicTableRow, topTableRow } from './basicTable.js';
 import { alertTable, alertTableRow } from './alertTable.js';
 import { mainTableRow, topMainRow } from './mainTable.js';
 import { loading } from './loading.js';
+import {address} from './dbAddress.js';
 
 // 외부 모듈과의 변수 공유
 export var container = document.getElementById("container"); // 최상위 컨테이너 div
@@ -23,6 +24,7 @@ var reccRows = []; // 화면에 보여지고 있는 추천 스케줄 row 리스�
 var currentRecc = 0; // 현재 보여지고 있는 추천 스케줄 인덱스
 var mainTableLeft = document.getElementById("mainTableLeft");
 var mainTableRight = document.getElementById("mainTableRight"); // 좌우 버튼들
+var mainIndex = document.getElementById("mainIndex");
 
 // 이벤트 리스너 지정
 mainTableRecc.addEventListener('click', function () { reccFunc(0) });
@@ -43,6 +45,7 @@ function reccFunc(index){
     setTimeout(function(){
         reccFunc2(index)
         Loading.deleteThis();
+        mainIndex.innerHTML = "1/3"
     }, 1500);
 }
 
@@ -64,6 +67,7 @@ function moveLeft(){
     }else{
         currentRecc -= 1;
     }
+    mainIndex.innerHTML = String(currentRecc+1)+"/3";
     reccFunc2(currentRecc);
 }
 
@@ -73,6 +77,7 @@ function moveRight(){
     }else{
         currentRecc += 1;
     }
+    mainIndex.innerHTML = String(currentRecc+1)+"/3";
     reccFunc2(currentRecc);
 }
 
@@ -127,7 +132,7 @@ var Loading = new loading('서버에서 DB를 불러오는 중입니다.'); // �
 
 // DB 로딩
 const xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://127.0.0.1:5500/static/main.db', true);
+xhr.open('GET', address, true);
 xhr.responseType = 'arraybuffer';
 xhr.addEventListener('load',xhrLoad.bind(this));
 
