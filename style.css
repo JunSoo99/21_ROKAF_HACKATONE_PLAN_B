@@ -1,0 +1,205 @@
+body {
+    overflow-x:hidden;
+    overflow-y:hidden;
+    background: #ebebeb;
+    margin: 30px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+input, select {
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+}
+
+button, img {
+    width: 19px;
+    padding: 0 10px;
+}
+
+button:hover, img:hover {
+    filter: opacity(0.5);
+}
+
+#container {
+    height: 100%;
+}
+
+#container > * {
+    padding: 15px;
+    border-radius: 5px;
+    background: white;
+}
+
+#basicTable {
+    width: 35%;
+}
+
+#basicTable > div, .main-table > div {
+    padding: 8px 10px;
+}
+
+#basicTable > div:first-child, .main-table > div:first-child {
+    font-weight: 500;
+    border-bottom: 1px solid black;
+}
+
+.not-change, .lack-of-rest-time {
+    background: #ffa49d61;
+    border-left: 5px solid #fb7272;
+    padding-left: 5px !important;
+}
+
+#basicTable > div:not(:first-child), .main-table > div:not(:first-child) {
+    border-bottom: 0.1px dotted #eaeaea;
+    height: 37px;
+}
+
+#basicTable > div > *, .main-table > div > * {
+    margin: 2px 5px;
+    line-height: 24px;
+}
+
+/* basicTable */
+#basicTable > div > *:not(button, img):not(:nth-child(4)) {
+    width: 18%;
+}
+
+#basicTable > div > *:nth-child(4) {
+    width: 35%;
+}
+
+/* main-table-container */
+.main-table-container {
+    width: 55%;
+    margin: 0 15px;
+    position: relative;
+}
+
+/* main-table */
+.main-table > div > *:not(button, img) {
+    width: 13%;
+}
+
+/* mainConfig */
+#mainConfig {
+    text-align: center;
+    position: fixed; 
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
+#mainConfig #mainTableRecc {
+    background: none;
+    border: none;
+    width: auto;
+    font-weight: 500;
+    color: #34485E;
+    transform: translateY(-4.5px);
+}
+
+#MainTable .main-alert-container {
+    padding: 5px 10px;
+    position: fixed;
+    bottom: 20px;
+    border: 1px dotted #777;
+    /* border: 1px outset; */
+    border-radius: 3px;
+    transform: translateY(-50%);
+    min-width: 80px;
+    height: 45px;
+}
+#MainTable .main-alert-container p.alert-title {
+    margin: 0;
+    top: -12.5px;
+    position: absolute;
+    background: white;
+    padding: 5px;
+    font-size: 0.85em;
+}
+#MainTable .main-alert-container p.alert-title::before {
+    top: 50%;
+    height: 50%;
+    background: white;
+}
+
+#MainTable .main-alert-container #mainAlert {
+    font-weight: 500;
+    margin: 10px;
+    color: black;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+#MainTable .main-alert-container #mainAlert.main-alert-success {
+    color: #4caf74;
+}
+#MainTable .main-alert-container #mainAlert.lack-of-rest-time {
+    color: #fb7272;
+}
+
+#alertTable {
+    width: 15%;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+}
+
+#alertTable > div {
+    padding: 15px;
+    border-radius: 5px;
+    background: white;
+}
+
+#alertTable > div:first-child {
+    margin-bottom: 15px;
+}
+
+#alertTable > div .alert-table-title {
+    font-weight: bold;
+    padding-bottom: 8px;
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+}
+
+#alertTable > div > div:not(:first-child) {
+    padding: 5px 2px;
+}
+#alertTable > div > div:not(:first-child) > div:first-child {
+    width: 20%;
+}
+#alertTable > div > div:not(:first-child) > input {
+    width: 40%;
+    margin-left: 5px;
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loading img {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+}
+
+.loading div {
+    position: relative;
+    top: 55%;
+    color: white;
+    text-align: center;
+}

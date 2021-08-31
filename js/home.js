@@ -12,8 +12,8 @@ export var mainTable = document.getElementById("mainTable"); // 중앙 화면 di
 export var mainTableRecc = document.getElementById("mainTableRecc"); // 중앙 하단 버튼들 div
 export var stageWidth, stageHeight; // 스테이지 크기
 // 화면 요소들간 비율
-export var basicTableRatio = 0.2
-export var alertTableRatio = 0.2
+export var basicTableRatio = 0.3
+export var alertTableRatio = 0.1
 export var mainTableRatio = 0.6
 export var rows = []; // 대대원 리스트
 export var recc = []; // DB에서 쿼리한 추천 스케줄을 관리할 리스트
@@ -32,9 +32,9 @@ mainTableRight.addEventListener('click', moveRight);
 // div 속성 지정
 container.style.display = 'flex';
 container.style.flexDirection = 'row';
-basicTable.style.margin = "15px";
-alertTableDiv.style.margin = "15px";
-mainTable.style.margin = "15px";
+// basicTable.style.margin = "15px";
+// alertTableDiv.style.margin = "15px";
+// mainTable.style.margin = "15px";
 mainAlert.style.margin = '15px';
 
 // 로딩 시간 구현을 위해 reccFunc, reccFunc2 두개로 나눔
@@ -82,8 +82,8 @@ class App {
         
         // 화면 구성 요소들 생성
         this.TopTableRow  = new topTableRow();
-        this.AlertTable = new alertTable("ALERT","MORNING","DAY","NIGHT");
-        this.numOfPlane = new alertTable("PLANES","MORNING","DAY",null)
+        this.AlertTable = new alertTable("비상대기 근무","오전","오후","야간");
+        this.numOfPlane = new alertTable("비행자원","오전","오후",null)
         this.MainTable = new topMainRow();
 
         // 리사이즈
@@ -91,24 +91,25 @@ class App {
     }
 
     resize() {
+        console.log(document.body)
         //stage
-        stageWidth = document.body.clientWidth;
-        stageHeight = document.body.clientHeight - 45;
+        stageWidth = document.body.clientWidth - 60;
+        stageHeight = document.body.clientHeight - 60;
         //container
         container.style.width = stageWidth;
         container.style.height = stageHeight;
         //basic table
-        basicTable.style.width = stageWidth * basicTableRatio;
-        basicTable.style.height = stageHeight;
+        basicTable.style.width = stageWidth * basicTableRatio - 30;
+        basicTable.style.height = stageHeight - 30;
         //alert table
-        alertTableDiv.style.width = stageWidth * alertTableRatio;
-        alertTableDiv.style.height = stageHeight;
+        // alertTableDiv.style.width = stageWidth * alertTableRatio - 30;
+        // alertTableDiv.style.height = stageHeight - 30;
         //main table
-        mainTable.style.width = stageWidth * mainTableRatio;
-        mainTable.style.height = stageHeight + 45;
+        mainTable.style.width = stageWidth * mainTableRatio - 30 - 30;
+        mainTable.style.height = stageHeight + 45 - 30;
         //alert table
-        alertTableDiv.style.width = stageWidth * alertTableRatio;
-        alertTableDiv.style.height = stageHeight;
+        // alertTableDiv.style.width = stageWidth * alertTableRatio;
+        // alertTableDiv.style.height = stageHeight;
 
         // 객체 리사이징
         this.AlertTable.resize();
@@ -126,7 +127,7 @@ var Loading = new loading('서버에서 DB를 불러오는 중입니다.'); // �
 
 // DB 로딩
 const xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://rokafa.com:5000/static/main.db', true);
+xhr.open('GET', 'http://127.0.0.1:5500/static/main.db', true);
 xhr.responseType = 'arraybuffer';
 xhr.addEventListener('load',xhrLoad.bind(this));
 
